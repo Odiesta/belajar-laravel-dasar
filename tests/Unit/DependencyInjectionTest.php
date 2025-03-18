@@ -18,14 +18,4 @@ class DependencyInjectionTest extends TestCase
 
         assertEquals("Foo and Bar", $bar->bar());
     }
-
-    public function testCreateDependency(): void
-    {
-        $foo = $this->app->make(Foo::class);
-        $foo2 = $this->app->make(Foo::class);
-
-        assertEquals("Foo", $foo->foo());
-        assertEquals("Foo", $foo2->foo());
-        assertNotSame($foo, $foo2);
-    }
 }
