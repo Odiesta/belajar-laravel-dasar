@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HelloController;
+use App\Http\Controllers\InputController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -56,3 +58,9 @@ Route::get('/produk/{id}', function ($id) {
 Route::get('/product-redirect/{id}', function ($id) {
     return redirect()->route('product.detail', ['id' => $id]);
 });
+
+Route::get('/controller/hello/request', [HelloController::class, 'request']);
+Route::get('/controller/hello/{name}', [HelloController::class, 'hello']);
+
+Route::get('/input/hello', [InputController::class, 'hello']);
+Route::post('/input/hello', [InputController::class, 'hello']);
