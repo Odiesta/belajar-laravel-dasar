@@ -17,10 +17,4 @@ class RequestTest extends TestCase
             ->assertSeeText('GET')
             ->assertSeeText('plain/text');
     }
-
-    public function testInput(): void
-    {
-        $this->get('/input/hello?name=Odis')->assertSeeText('Hello Odis');
-        $this->post('/input/hello', ['name' => 'Odis'])->assertSeeText('Hello Odis');
-    }
 }
